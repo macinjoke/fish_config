@@ -2,6 +2,12 @@ set -x MACINJOKE (ghq root)/github.com/macinjoke
 set -x VARIOUS $MACINJOKE/various
 set -x PATH ./node_modules/.bin $PATH
 
+# fzf
+# https://github.com/jethrokuan/fzf
+set -x FZF_LEGACY_KEYBINDINGS 0
+set -x FZF_DEFAULT_OPTS "--reverse --height=100%"
+set -x FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
+
 # fisherのインストール
 if not functions -q fisher
     set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
@@ -25,8 +31,26 @@ function attach_tmux_session_if_needed
         tmux attach-session -t "$ID"
     end
 end
-
 if test -z $TMUX && status --is-login
     attach_tmux_session_if_needed
 end
 
+# pecoでCtrl+Rの設定 (top-down にしたかったのでpluginのコードコピペして修正)
+# https://github.com/oh-my-fish/plugin-peco/blob/master/functions/peco_select_history.fish
+# fzf を使うようにしたのでひとまず用済み
+# function peco_select_history
+#     if test (count $argv) = 0
+#         set peco_flags --layout=top-down
+#     else
+#         set peco_flags --layout=top-down --query "$argv"
+#     end
+#     history | peco $peco_flags | read foo
+#     if [ $foo ]
+#         commandline $foo
+#     else
+#         commandline ''
+#     end
+# end
+# function fish_user_key_bindings
+#     bind \cr 'peco_select_history (commandline -b)'
+# end
