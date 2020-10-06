@@ -54,3 +54,8 @@ end
 # function fish_user_key_bindings
 #     bind \cr 'peco_select_history (commandline -b)'
 # end
+
+# ghcup-env
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
+test -f /Users/macinjoke/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin /Users/macinjoke/.ghcup/bin $PATH
+
