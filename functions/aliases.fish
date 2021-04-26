@@ -2,8 +2,8 @@ function glog
     git log --graph --decorate --all $argv
 end
 
-function g
-    git $argv
+function g --wraps git --description 'alias g=git'
+    git  $argv;
 end
 
 function tiga
@@ -58,7 +58,7 @@ end
 
 function C
     pbcopy $argv
-end 
+end
 
 function N
     terminal-notifier -message "コマンド完了" -sound Glass -activate "com.googlecode.iterm2" $argv
