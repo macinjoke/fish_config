@@ -52,8 +52,12 @@ function ghinit
     git init && git commit --allow-empty -m "first empty commit" && hub create && git push -u origin master && hub browse
 end
 
-function y
-    yarn $argv
+function y --wraps yarn --description 'alias y=yarn'
+    yarn $argv;
+end
+
+function n --wraps npm --description 'alias n=npm'
+    npm $argv;
 end
 
 function C
