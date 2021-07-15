@@ -56,6 +56,10 @@ end
 #     bind \cr 'peco_select_history (commandline -b)'
 # end
 
+# nvm
+nvm use || nvm use default
+echo
+
 # ghcup-env
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
 test -f /Users/macinjoke/.ghcup/env ; and set -gx PATH $HOME/.cabal/bin /Users/macinjoke/.ghcup/bin $PATH
