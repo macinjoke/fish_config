@@ -7,6 +7,7 @@ set -x PATH ./node_modules/.bin $PATH
 set -x FZF_LEGACY_KEYBINDINGS 0
 set -x FZF_DEFAULT_OPTS "--reverse --height=100%"
 set -x FZF_REVERSE_ISEARCH_OPTS "--reverse --height=100%"
+set -x HOMEBREW_NO_AUTO_UPDATE 1
 
 # fisherのインストール
 if not functions -q fisher
